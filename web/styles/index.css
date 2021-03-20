@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #00a2ff;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+
+.title {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.button {
+    background-color: #cbc5cb;
+    padding: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    color: blue;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
