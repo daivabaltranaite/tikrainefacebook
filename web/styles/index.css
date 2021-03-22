@@ -8,6 +8,11 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
+form {
+    margin: auto;
+    text-align: end;
+}
+
 .title {
     margin-top: 80px;
     text-align: center;
@@ -20,6 +25,7 @@ body {
     overflow: hidden;
     color: blue;
     margin: 20px;
+    text-decoration: none;
 }
 
 .container {
@@ -27,3 +33,4 @@ body {
     justify-content: center;
     margin-top: 50px;
 }
+
