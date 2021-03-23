@@ -4,27 +4,43 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>tikrainefacebook</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1 class="title">tikrainefacebook</h1>
-    <div class="userInfo">
-              <form action="" method="post">
-                <span>Username</span>
-                <input type="text" name="uid" placeholder="Username"><br>
-                <span>Email</span>
-                <input class="margin-for-input" type="text" name="mail" placeholder="E-mail"><br>
-                <span>Password</span>
-                <input class="margin-for-input" type="password" name="pwd" placeholder="Password"><br>
-                <span>Repeat password</span>
-                <input class="margin-for-input" type="password" name="pwd-repeat" placeholder="Repeat password"><br>
-
+    <div class="container">
+        <h2 class="title">tikrainefacebook.com</h2>
+        <div class="form-block">
+            <form action="#TODO" method="POST">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" placeholder="your_username">
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" placeholder="your_email@example.com">
+                </div>
+                <div class="field">
+                    <label for="password1">Create password</label>
+                    <input type="password" name="password1" placeholder="at least 8 characters">
+                </div>
+                <div class="field">
+                    <label for="password2">Repeat new password</label>
+                    <input type="password" name="password2" placeholder="at least 8 characters">
+                </div>
+                <input type="submit" name="signup-submit" value="Sign Up">
+                <div class="action-block">
+                    <a class="primary-action" href="login.html">Log In!</a>
+                    <a class="primary-action" href="#TODO">Forgot password?</a>
+                </div>
             </form>
-        <a class="button register-button" type="submit" name="signup-submit" href="" target="">Register</a>
+            <img src="img/register.png" alt="Login Image">
+        </div>
+        <footer>
+            <p>&#169; 2021 Aleksanda Caj, Daiva Baltranaitė, Kęstutis Svetikas, Osvaldas Ulevičius</p>
+        </footer>
     </div>
 </body>
 </html>
