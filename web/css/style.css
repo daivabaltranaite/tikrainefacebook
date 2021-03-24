@@ -155,6 +155,27 @@ footer {
     text-align: center; 
 }
 
+.post-block-container {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5rem;
+    border-radius: 5rem;
+}
+
+.post-block {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+.post-block-container img {
+    padding: 4rem;
+    height: 20rem;
+}
+
+
+
 @media (min-width: 850px) {
 
     .form-block form { width: 45%; }
