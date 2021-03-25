@@ -44,6 +44,17 @@ p { line-height: 2.2rem; }
    ACTIONS 
 ========================================================= */
 
+.header-action {
+    color: #4B4F51;
+    margin-left: 1.6rem;
+    text-decoration: none;
+    line-height: 3rem;
+}
+
+.header-action:hover {
+    color: #000000;
+}
+
 .primary-action {
     color: #fb4c47;
     font-weight: 700;
@@ -72,7 +83,8 @@ form select {
 
 form input[type="text"],
 form input[type="email"],
-form input[type="password"],
+form input[type="password"]
+form textarea,
 form select {
     box-sizing: border-box;
     height: 5rem;
@@ -104,6 +116,25 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #c93d39; 
     transition: all 0.5s;
+}
+
+/* =========================================================
+   HEADER 
+========================================================= */
+
+.header {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    font-weight: 500;
+}
+
+.header-menu { 
+    display: flex;
+    flex-direction: column;
 }
 
 /* =========================================================
@@ -186,5 +217,12 @@ footer {
     }
 
     .container { width: 85rem; }
+    
+    .header { 
+       flex-direction: row; 
+       padding: 1rem 0;
+    }
+
+    .header-menu { flex-direction: row; }
     
 }
