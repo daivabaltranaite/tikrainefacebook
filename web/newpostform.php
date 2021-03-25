@@ -15,7 +15,7 @@
             <form action="index.php" method="POST">
                 <div class="field">
                     <label for="content">Write a new post:</label>
-                    <textarea name="content" rows="10" style="width: 100%;"></textarea>
+                    <textarea name="content" rows="10" style="max-width: 100%; height:auto;"></textarea>
                 </div>
                 <input type="submit" name="post-submit" value="Publish Post">
             </form>
