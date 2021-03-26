@@ -219,8 +219,6 @@ footer {
 
 .image-and-info {
   background: white;
-  border-radius: 5.3rem;
-  border: 1px solid #E4E4E4;
   width: inherit;
   height: auto;
   display: flex;
@@ -254,7 +252,6 @@ footer {
 .profile-info-container {
   width: calc(100% - 20rem);
   min-height: 52rem;
-  margin-left: 2rem;
   height: auto;
 }
 
@@ -268,19 +265,12 @@ footer {
   margin:  3rem 3rem 8rem 3rem;
 }
 
-.profile-info-container form {
-  align-self: flex-end;
-
-}
-
-.profile-info-container {
+.image-and-info, .profile-info-container {
   border: 1px solid #E4E4E4;
   border-radius: 5.3rem;
-  background: white;
-  padding: 2rem;
 }
 
-.profile-image-container {
+.profile-image-container, .profile-info-container {
   padding: 2rem;
 }
 
@@ -312,7 +302,6 @@ footer {
 .image-and-info form input[type="submit"]:hover {
     background-color: #c93d39;
     transition: all 0.5s;
-    align-self: flex-end;
 }
 
 @media (min-width: 850px) {
