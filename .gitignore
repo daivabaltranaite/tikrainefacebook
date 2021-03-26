@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
@@ -6,4 +7,14 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+=======
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+>>>>>>> kestas_new
 nbproject/
