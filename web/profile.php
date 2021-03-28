@@ -79,106 +79,104 @@ if (mysqli_connect_errno()) {
                 <?php
                  if ($profileId === $_SESSION['username']) {
 
-                    echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'>";
-                    echo "<input type='submit' name='set-picture' value='Set new profile picture'>";
-                    echo "<input type='submit' name='remove-picture' value='Remove profile picture'>";
-                    echo "<input type='submit' name='change-profile-info' value='Change profile details'>";
-                }
-                ?>
-            </form>
-        </div>
+                   echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'></input>";
+                   echo "<input type='submit' name='set-picture' value='Set new profile picture'></input>";
+                   echo "<input type='submit' name='remove-picture' value='Remove profile picture'></input>";
+                   echo "<input type='submit' name='change-profile-info' value='Change profile details'></input>";
+               }
+               ?>
+           </form>
+       </div>
 
-        <?php
+       <?php
 
-        if (isset($_POST['set-picture'])){
-            $sql = "UPDATE users SET profile_picture= '" . ($_POST['profile-picture-url']) . "' WHERE username= '" . $profileId . "'";
-            $res = mysqli_query($mysqli_connection, $sql);
-        }
+       if (isset($_POST['set-picture'])){
+           $sql = "UPDATE users SET profile_picture= '" . ($_POST['profile-picture-url']) . "' WHERE username= '" . $profileId . "'";
+           $res = mysqli_query($mysqli_connection, $sql);
+       }
 
-        if (isset($_POST['remove-picture'])){
+       if (isset($_POST['remove-picture'])){
 
-            $sql = "UPDATE users SET profile_picture= NULL WHERE username= '" . $profileId . "'";
-            $res = mysqli_query($mysqli_connection, $sql);
-        }
+           $sql = "UPDATE users SET profile_picture= NULL WHERE username= '" . $profileId . "'";
+           $res = mysqli_query($mysqli_connection, $sql);
+       }
 
-        if (isset($_POST['change-profile-info'])){
+       if (isset($_POST['change-profile-info'])){
 
-            // $profileName = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-name' placeholder='Insert your name'></input></form>";
-            // $profileSurname = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-surname' placeholder='Insert your surname'></input></form>";
-            // $profileAboutMe = "<form class='table-form-about' action='' method='POST'><textarea name='profile-about' placeholder='Write something about yourself'></textarea></form>";
-
-        }
-        ?>
-
-        <div class="profile-info-container">
-            <h3>Profile details</h3>
-            <table class="profile-info">
-                <tr>
-                    <td><h4>Name:</h4></td>
-                    <td class="profile-info-name"><?php echo $profileName;?></td>
-                </tr>
-                <tr>
-                    <td><h4>Surname:</h4></td>
-                    <td class="profile-info-surname"><?php echo $profileSurname;?></td>
-                </tr>
-                <tr>
-                    <td><h4>Email:</h4></td>
-                    <td class="profile-info-email"><?php echo $profileEmail;?></td>
-                </tr>
-                <tr>
-                    <td><h4>Registration-date:</h4></td>
-                    <td class="profile-info-reg-date"><?php echo $profileRegDate;?></td>
-                </tr>
-                <tr>
-                    <td><h4>About me:</h4></td>
-                    <td class="profile-info-about"><?php echo $profileAboutMe;?></td>
-                </tr>
-            </table>
-
-            <form class='table-forms' action='' method='POST'>
-                <input type='text' name='profile-name' placeholder='Insert your name'></input>
-                <input class='table-forms' type='text' name='profile-surname' placeholder='Insert your surname'></input>
-                <textarea class='table-forms-about' name='profile-about' placeholder='Write something about yourself'></textarea>
-            </form>
-
-            <form action="" method="POST">
-                <?php if (isset($_POST['change-profile-info'])){
-
-                    echo "<input type='submit' name='profile-edit' value='Save profile details'></input>";
-                    echo "<input type='submit' name='cancel-edit' value='Cancel editting'></input>";
-                }
-                ?>
-                <input type="submit" name="back" value="Back to main page">
-            </form>
-            <?php
-            if (isset($_POST['profile-edit'])){
+           $profileName = "<form action='' method='POST'><input class='table-form-input-text' type='text' name='profile-name' placeholder='Insert your name'></input>";
+           $profileSurname = "<input class='table-form-input-text' type='text' name='profile-surname' placeholder='Insert your surname'></input>";
+           $profileAboutMe = "<textarea class='table-form-textarea' name='profile-about' placeholder='Write something about yourself'></textarea>";
 
 
-                if (isset($_POST['profile-name']) && ($_POST['profile-name'] !== "")) {
-                    $editName = $_POST['profile-name'];
-                }
+       }
+       ?>
 
-                if (isset($_POST['profile-surname']) && ($_POST['profile-surname'] !== "")) {
-                    $editSurname = $_POST['profile-surname'];
-                }
+       <div class="profile-info-container">
+           <h3>Profile details</h3>
+           <table class="profile-info">
+               <tr>
+                   <td><h4>Name:</h4></td>
+                   <td class="profile-info-name"><?php echo $profileName;?></td>
+               </tr>
+               <tr>
+                   <td><h4>Surname:</h4></td>
+                   <td class="profile-info-surname"><?php echo $profileSurname;?></td>
+               </tr>
+               <tr>
+                   <td><h4>Email:</h4></td>
+                   <td class="profile-info-email"><?php echo $profileEmail;?></td>
+               </tr>
+               <tr>
+                   <td><h4>Registration-date:</h4></td>
+                   <td class="profile-info-reg-date"><?php echo $profileRegDate;?></td>
+               </tr>
+               <tr>
+                   <td><h4>About me:</h4></td>
+                   <td class="profile-info-about"><?php echo $profileAboutMe;?></td>
+               </tr>
+           </table>
 
-                if (isset($_POST['profile-about']) && ($_POST['profile-about'] !== "")) {
-                    $editAboutMe = $_POST['profile-about'];
-                }
 
-                $sql = "UPDATE users SET name= '" . $editName . "', surname= '" . $editSurname . "', about_user= '" . $editAboutMe . "' WHERE username= '" . $profileId . "'";
-                $res = mysqli_query($mysqli_connection, $sql);
-            }
+               <?php if (isset($_POST['change-profile-info'])){
 
-            if (isset($POST['back'])) {
-                header('Location: index.html');
-            }
+                   echo "<input class='profile-info-container-submit' type='submit' name='profile-edit' value='Save profile details'></input>";
+                   echo "<input class='profile-info-container-submit' type='submit' name='cancel-edit' value='Cancel editting'></input></form>";
+               }
+               ?>
 
-            mysqli_close($mysqli_connection);
-            ?>
-        </div>
+           <form class="back-button-form" action='' method='POST'>
+               <input class="back-button" type="submit" name="back" value="Back to main page">
+           </form>
 
-    </div>
+           <?php
+           if (isset($_POST['profile-edit'])){
+
+
+               if (isset($_POST['profile-name'])) {
+                   $editName = $_POST['profile-name'];
+               }
+
+               if (isset($_POST['profile-surname']) && ($_POST['profile-surname'] !== "")) {
+                   $editSurname = $_POST['profile-surname'];
+               }
+
+               if (isset($_POST['profile-about']) && ($_POST['profile-about'] !== "")) {
+                   $editAboutMe = $_POST['profile-about'];
+               }
+
+               $sql = "UPDATE users SET name= '" . $editName . "', surname= '" . $editSurname . "', about_user= '" . $editAboutMe . "' WHERE username= '" . $profileId . "'";
+               $res = mysqli_query($mysqli_connection, $sql);
+           }
+
+           if (isset($POST['back'])) {
+               header('Location: index.html');
+           }
+
+           mysqli_close($mysqli_connection);
+           ?>
+       </div>
+
+   </div>
 </div>
 </body>
 </html>

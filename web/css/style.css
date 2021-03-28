@@ -228,6 +228,11 @@ footer {
   z-index: 1;
 }
 
+.image-and-info form input:focus {
+    outline: none;
+    border: 1px solid #15234A;
+}
+
 .image-and-info form input[type="submit"] {
     background-color: #fb4c47;
     border: 0;
@@ -261,27 +266,43 @@ footer {
   height: auto;
 }
 
-.profile-info-container form input[type="submit"] {
+.profile-info-container-submit, .back-button {
     width: 92%;
+    background-color: #fb4c47;
+    border: 0;
+    border-radius: 3rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 400;
+    height: 3rem;
+    outline: none;
+    margin: 0 0 1rem 0;
 }
 
-.table-forms input[type="text"] {
-    height: 2.5rem;
+.back-button-form {
+    width: 92%;
+    text-align: center;
+    margin-left: 4%;
+}
+
+.table-form-input-text {
+    height: 5rem;
     width: 35rem;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    border: 1px solid #e6e6e6;
 }
 
-.table-form-about, .table-form-about textarea {
+.table-form-textarea {
     width: 35rem;
     min-height: 15rem;
     margin-top: 0.4rem;
     vertical-align: text-top;
     padding: 0;
     border-radius: 0.2rem;
-}
-
-.table-form-about textarea{
     border: 1px solid #E4E4E4;
-    font-size: 1.3rem; /* 1rem = 10px */
+    font-size: 1.5rem; /* 1rem = 10px */
     font-family: 'Red Hat Display', sans-serif;
     font-weight: 200;
     padding: 0.5rem 1rem 0.5rem 1rem;
@@ -337,7 +358,6 @@ footer {
 }
 
 .profile-info-container table td form {
-    /*height:1.5rem;*/
     height: auto;
 }
 
@@ -348,7 +368,7 @@ footer {
   border-collapse: collapse;
 }
 
-.image-and-info form input[type="submit"]:hover {
+.image-and-info form input[type="submit"]:hover, .profile-info-container-submit:hover {
     background-color: #c93d39;
     transition: all 0.5s;
 }
