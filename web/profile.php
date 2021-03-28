@@ -1,13 +1,13 @@
 <?php
 //Validation
 
-//if (empty($_SESSION['username'])) {
-//    header ('Location: login.html');
-//}
-//
-//include "env.php";
+if (empty($_SESSION['username'])) { //Nezinau tikslaus SESSION pavadinimo, gali tekti pakeisti veliau.
+   header ('Location: login.html');
+}
 
-$profileId = "danguole5";  //kintamasis kurio reiksme USERNAME i kurio profili uzeinama.
+include "env.php";
+
+$profileId = "";  //kintamasis kurio reiksme USERNAME i kurio profili uzeinama.
 
 if (mysqli_connect_errno()) {
 
@@ -77,8 +77,8 @@ if (mysqli_connect_errno()) {
             <form action="" method="post">
 
                 <?php
-//                    if ($profileId === $_SESSION['username']) {
-                if ($profileId === "danguole5") {
+                 if ($profileId === $_SESSION['username']) {
+
                     echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'>";
                     echo "<input type='submit' name='set-picture' value='Set new profile picture'>";
                     echo "<input type='submit' name='remove-picture' value='Remove profile picture'>";
@@ -148,7 +148,7 @@ if (mysqli_connect_errno()) {
             if (isset($_POST['profile-edit'])){
 
 
-                if (isset($_POST['profile-name'])) {
+                if (isset($_POST['profile-name']) && ($_POST['profile-name'] !== "")) {
                     $editName = $_POST['profile-name'];
                 }
 
