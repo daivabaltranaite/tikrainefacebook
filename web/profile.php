@@ -76,15 +76,15 @@ if (mysqli_connect_errno()) {
             <img class="profile-image" src="<?php echo $profileImage;?>" alt="Profile image">
             <form action="" method="post">
 
-                <?php
-                 if ($profileId === $_SESSION['username']) {
+        <?php
+        if ($profileId === $_SESSION['username']) {
 
-                   echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'></input>";
-                   echo "<input type='submit' name='set-picture' value='Set new profile picture'></input>";
-                   echo "<input type='submit' name='remove-picture' value='Remove profile picture'></input>";
-                   echo "<input type='submit' name='change-profile-info' value='Change profile details'></input>";
-               }
-               ?>
+           echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'></input>";
+           echo "<input type='submit' name='set-picture' value='Set new profile picture'></input>";
+           echo "<input type='submit' name='remove-picture' value='Remove profile picture'></input>";
+           echo "<input type='submit' name='change-profile-info' value='Change profile details'></input>";
+       }
+       ?>
            </form>
        </div>
 
