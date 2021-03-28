@@ -242,6 +242,11 @@ footer {
     margin: 0 0 1rem 0;
 }
 
+.profile-image-container form input[type="text"] {
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+}
+
 .image-container {
   width:calc(15rem + 6px);
   display: flex;
@@ -250,13 +255,40 @@ footer {
 }
 
 .profile-info-container {
+  text-align: center;
   width: calc(100% - 20rem);
   min-height: 52rem;
   height: auto;
 }
 
+.profile-info-container form input[type="submit"] {
+    width: 92%;
+}
+
+.table-forms input[type="text"] {
+    height: 2.5rem;
+    width: 35rem;
+}
+
+.table-form-about, .table-form-about textarea {
+    width: 35rem;
+    min-height: 15rem;
+    margin-top: 0.4rem;
+    vertical-align: text-top;
+    padding: 0;
+    border-radius: 0.2rem;
+}
+
+.table-form-about textarea{
+    border: 1px solid #E4E4E4;
+    font-size: 1.3rem; /* 1rem = 10px */
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 200;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
 .profile-info-container h4 {
-  margin: 3rem ;
+  margin:3rem;
   color: #4d4d4d;
 }
 
@@ -289,7 +321,24 @@ footer {
 
 .profile-info-container table h4 {
   color: #4d4d4d;
-  margin-top: 0;
+  margin: 1rem 3rem 1.5rem 3rem;
+}
+
+.profile-info-container table td {
+    padding-top: 0;
+    margin-top: 0;
+    vertical-align: text-top;
+}
+
+.profile-info-container table {
+    padding-top: 0;
+    margin-top: 0;
+    vertical-align: text-top;
+}
+
+.profile-info-container table td form {
+    /*height:1.5rem;*/
+    height: auto;
 }
 
 .profile-info {
