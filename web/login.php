@@ -1,3 +1,25 @@
+<?php
+if (isset($_POST["signup-submit"])) {
+    include "env.php";
+    if (mysqli_connect_errno()){
+        echo mysqli_connect_error();
+    } else {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $sqlToCreateUser = "INSERT INTO users "
+            . "(username, email, password) "
+            . "VALUES ("
+            ."'".$username."',"
+            ."'".$email."',"
+            ."'".$password
+            ."')";
+
+        mysqli_query($mysqli_connection, $sqlToCreateUser);
+    }
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +34,7 @@
     <div class="container">
         <h2 class="title">tikrainefacebook.com</h2>
         <div class="form-block">
-            <form action="" method="POST">
+            <form action="index.php" method="POST">
                 <div class="field">
                     <label for="username">Username</label>
                     <input type="text" name="username" placeholder="your_username">
@@ -23,7 +45,7 @@
                 </div>
                 <input type="submit" name="login-submit" value="Login">
                 <div class="action-block">
-                    <a class="primary-action" href="register.html">Sign up!</a>
+                    <a class="primary-action" href="register.php">Sign up!</a>
                     <a class="primary-action" href="#todo">Forgot password?</a>
                 </div>
             </form>
