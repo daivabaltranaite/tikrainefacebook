@@ -3,7 +3,16 @@
         <h3>tikrainefacebook.com</h3>
     </div>
     <div class="header-menu">
-        <a href="newpostform.php" class="header-action">Add a new post</a>
+
+        <form class="header-form" action="search.php" method="POST">
+            <input type="text" name="search" placeholder="Search">
+            <button type="submit" name="submit-search">Search</button>
+        </form>
+
+        <a href="newpostform.php" class="header-action">+ new post</a>
+
+<!--        TODO if user has profile picture, display it, else show default profile picture-->
+        <a href="profile.html"><img class="profile-link" src="img/profile.png"></a>
         <a href="#" class="header-action">Log out</a>
     </div>
 </div>
