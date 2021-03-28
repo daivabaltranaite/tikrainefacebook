@@ -103,9 +103,9 @@ if (mysqli_connect_errno()) {
 
         if (isset($_POST['change-profile-info'])){
 
-            $profileName = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-name' placeholder='Insert your name'></input></form>";
-            $profileSurname = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-surname' placeholder='Insert your surname'></input></form>";
-            $profileAboutMe = "<form class='table-form-about' action='' method='POST'><textarea name='profile-about' placeholder='Write something about yourself'></textarea></form>";
+            // $profileName = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-name' placeholder='Insert your name'></input></form>";
+            // $profileSurname = "<form class='table-forms' action='' method='POST'><input type='text' name='profile-surname' placeholder='Insert your surname'></input></form>";
+            // $profileAboutMe = "<form class='table-form-about' action='' method='POST'><textarea name='profile-about' placeholder='Write something about yourself'></textarea></form>";
 
         }
         ?>
@@ -134,6 +134,12 @@ if (mysqli_connect_errno()) {
                     <td class="profile-info-about"><?php echo $profileAboutMe;?></td>
                 </tr>
             </table>
+
+            <form class='table-forms' action='' method='POST'>
+                <input type='text' name='profile-name' placeholder='Insert your name'></input>
+                <input class='table-forms' type='text' name='profile-surname' placeholder='Insert your surname'></input>
+                <textarea class='table-forms-about' name='profile-about' placeholder='Write something about yourself'></textarea>
+            </form>
 
             <form action="" method="POST">
                 <?php if (isset($_POST['change-profile-info'])){
