@@ -77,33 +77,35 @@ if (isset($_POST["post-submit"])) {
         </div>
     <?php } ?>
     <?php
-    include "header.html";
-    include "env.php";
-    $sqlGetPosts = "SELECT * FROM posts ORDER BY post_date DESC";
-    $postsResults = mysqli_query($mysqli_connection, $sqlGetPosts);
-    if ($postsResults) {
-        while ($row = mysqli_fetch_array($postsResults, MYSQLI_ASSOC)) {
-            $sqlGetPostUser = "SELECT * FROM users WHERE user_id = " . $row["user"] . "";
-            $getPostUser = mysqli_query($mysqli_connection, $sqlGetPostUser);
-            $postUser = mysqli_fetch_array($getPostUser, MYSQLI_ASSOC);
-            ?>
-            <!--    TODO else statement if the user is logged in show posts-->
-            <div class="post-block-container">
-                <!--        TODO if user has profile picture, display it, else show default profile picture-->
-                <img src="img/profile.png" alt="Profile image">
-                <div class="post-block">
-                    <div>
-                        <h4><?php echo $row["post_date"] ?></h4>
-                        <h2><?php echo isset($postUser["username"]) ? $postUser["username"] : "Unkown user" ?></h2>
-                    </div>
-                    <div class="post-block-body">
-                        <p>
-                            <?php echo $row["content"] ?>
-                        </p>
+    if (isset($userId)) {
+        include "header.html";
+        include "env.php";
+        $sqlGetPosts = "SELECT * FROM posts ORDER BY post_date DESC";
+        $postsResults = mysqli_query($mysqli_connection, $sqlGetPosts);
+        if ($postsResults) {
+            while ($row = mysqli_fetch_array($postsResults, MYSQLI_ASSOC)) {
+                $sqlGetPostUser = "SELECT * FROM users WHERE user_id = " . $row["user"] . "";
+                $getPostUser = mysqli_query($mysqli_connection, $sqlGetPostUser);
+                $postUser = mysqli_fetch_array($getPostUser, MYSQLI_ASSOC);
+                ?>
+                <!--    TODO else statement if the user is logged in show posts-->
+                <div class="post-block-container">
+                    <!--        TODO if user has profile picture, display it, else show default profile picture-->
+                    <img src="img/profile.png" alt="Profile image">
+                    <div class="post-block">
+                        <div>
+                            <h4><?php echo $row["post_date"] ?></h4>
+                            <h2><?php echo isset($postUser["username"]) ? $postUser["username"] : "Unkown user" ?></h2>
+                        </div>
+                        <div class="post-block-body">
+                            <p>
+                                <?php echo $row["content"] ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php
+                <?php
+            }
         }
     }
     include "footer.html";
