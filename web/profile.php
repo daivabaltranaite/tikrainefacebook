@@ -1,13 +1,13 @@
 <?php
 //Validation
 
-if (empty($_SESSION['username'])) { //Nezinau tikslaus SESSION pavadinimo, gali tekti pakeisti veliau.
+if (empty($_COOKIE['username'])) {
    header ('Location: login.html');
 }
 
 include "env.php";
 
-$profileId = "";  //kintamasis kurio reiksme USERNAME i kurio profili uzeinama.
+$profileId = $_COOKIE['username'];  //kintamasis kurio reiksme USERNAME i kurio profili uzeinama.
 
 if (mysqli_connect_errno()) {
 
@@ -67,17 +67,18 @@ if (mysqli_connect_errno()) {
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-<img class="profile-background-image" src="img/register.png" alt="Profile background">
-<div class="container">
-    <h2 class="title">tikrainefacebook.com</h2>
-    <div class="image-and-info">
+    <img class="profile-background-image" src="img/register.png" alt="Profile background">
+    <div class="container">
+        <h2 class="title">tikrainefacebook.com</h2>
+        <div class="image-and-info">
 
-        <div class="profile-image-container">
-            <img class="profile-image" src="<?php echo $profileImage;?>" alt="Profile image">
-            <form action="" method="post">
+            <div class="profile-image-container">
+                <img class="profile-image" src="<?php echo $profileImage;?>" alt="Profile image">
+                <form action="" method="post">
 
         <?php
-        if ($profileId === $_SESSION['username']) {
+
+        if ($profileId === $_COOKIE['username']) {
 
            echo "<input type='text' name='profile-picture-url' placeholder='Insert your image URL'></input>";
            echo "<input type='submit' name='set-picture' value='Set new profile picture'></input>";
@@ -85,8 +86,8 @@ if (mysqli_connect_errno()) {
            echo "<input type='submit' name='change-profile-info' value='Change profile details'></input>";
        }
        ?>
-           </form>
-       </div>
+                </form>
+            </div>
 
        <?php
 
@@ -100,53 +101,37 @@ if (mysqli_connect_errno()) {
            $sql = "UPDATE users SET profile_picture= NULL WHERE username= '" . $profileId . "'";
            $res = mysqli_query($mysqli_connection, $sql);
        }
-
+       ?>
+            <div class="profile-info-container">
+       <?php
        if (isset($_POST['change-profile-info'])){
 
-           $profileName = "<form action='' method='POST'><input class='table-form-input-text' type='text' name='profile-name' placeholder='Insert your name'></input>";
-           $profileSurname = "<input class='table-form-input-text' type='text' name='profile-surname' placeholder='Insert your surname'></input>";
-           $profileAboutMe = "<textarea class='table-form-textarea' name='profile-about' placeholder='Write something about yourself'></textarea>";
+           echo "<h3>Edit profile details</h3>";
+           echo "<form action='' method='POST'>";
+           echo "<label for='profile-name-id'><h4>Name:</h4></label><input type='text' id='profile-name-id' name='profile-name' placeholder='Insert your name'></input>";
+           echo "<label for='profile-surname-id'><h4>Surname:</h4></label><input type='text' id='profile-surname-id' name='profile-surname' placeholder='Insert your surname'></input>";
+           echo "<h4>Email:</h4><p>" . $profileEmail . "</p>";
+           echo "<h4>Registration-date:</h4><p>" . $profileRegDate . "</p>";
+           echo "<label for='profile-textarea-id'><h4>About me:</h4></label><textarea id='profile-textarea-id' name='profile-about' placeholder='Write something about yourself'></textarea>";
+           echo "<input type='submit' name='profile-edit' value='Save profile details'></input>";
+           echo "<input type='submit' name='cancel-edit' value='Cancel editting'></input>";
 
-
+           echo "</form>";
+       }else {
+           echo "<h3>Profile details</h3>";
+           echo "<h4>Name:</h4><p>" . $profileName . "</p>";
+           echo "<h4>Surname:</h4><p>" . $profileSurname . "</p>";
+           echo "<h4>Email:</h4><p>" . $profileEmail . "</p>";
+           echo "<h4>Registration-date:</h4><p>" . $profileRegDate . "</p>";
+           echo "<h4>About me:</h4><p>" . $profileAboutMe . "</p>";
        }
        ?>
 
-       <div class="profile-info-container">
-           <h3>Profile details</h3>
-           <table class="profile-info">
-               <tr>
-                   <td><h4>Name:</h4></td>
-                   <td class="profile-info-name"><?php echo $profileName;?></td>
-               </tr>
-               <tr>
-                   <td><h4>Surname:</h4></td>
-                   <td class="profile-info-surname"><?php echo $profileSurname;?></td>
-               </tr>
-               <tr>
-                   <td><h4>Email:</h4></td>
-                   <td class="profile-info-email"><?php echo $profileEmail;?></td>
-               </tr>
-               <tr>
-                   <td><h4>Registration-date:</h4></td>
-                   <td class="profile-info-reg-date"><?php echo $profileRegDate;?></td>
-               </tr>
-               <tr>
-                   <td><h4>About me:</h4></td>
-                   <td class="profile-info-about"><?php echo $profileAboutMe;?></td>
-               </tr>
-           </table>
-
-
-               <?php if (isset($_POST['change-profile-info'])){
-
-                   echo "<input class='profile-info-container-submit' type='submit' name='profile-edit' value='Save profile details'></input>";
-                   echo "<input class='profile-info-container-submit' type='submit' name='cancel-edit' value='Cancel editting'></input></form>";
-               }
-               ?>
-
-           <form class="back-button-form" action='' method='POST'>
-               <input class="back-button" type="submit" name="back" value="Back to main page">
-           </form>
+                <form action='' method='POST'>
+                    <input type="submit" name="back" value="Back to main page">
+                </form>
+            </div>
+        </div>
 
            <?php
            if (isset($_POST['profile-edit'])){
@@ -174,9 +159,6 @@ if (mysqli_connect_errno()) {
 
            mysqli_close($mysqli_connection);
            ?>
-       </div>
-
-   </div>
-</div>
+    </div>
 </body>
 </html>
