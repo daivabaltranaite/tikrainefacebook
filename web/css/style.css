@@ -43,6 +43,13 @@ p { line-height: 2.2rem; }
 /* =========================================================
    ACTIONS
 ========================================================= */
+.profile-link {
+    height: 5rem;
+    width: 5rem;
+    margin-left: 1.6rem;
+    border: 2px solid #4d4d4d;
+    border-radius: 10px;
+}
 
 .header-action {
     color: #4B4F51;
@@ -101,6 +108,7 @@ form select:focus {
     border: 1px solid #15234A;
 }
 
+form button[type="submit"],
 form input[type="submit"] {
     background-color: #fb4c47;
     border: 0;
@@ -112,6 +120,12 @@ form input[type="submit"] {
     height: 5rem;
     outline: none;
     width: 100%;
+}
+
+form button[type="submit"] {
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 5px;
 }
 
 form input[type="submit"]:hover {
@@ -136,7 +150,17 @@ form input[type="submit"]:hover {
 .header-menu {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.header-form {
+    display: flex;
+    flex-direction: row;
+
+}
+
+
 
 /* =========================================================
    BODY
@@ -147,6 +171,7 @@ form input[type="submit"]:hover {
     flex-direction: column;
     margin: auto;
     width: 100%;
+
 }
 
 .title { margin-top: 4rem; }
