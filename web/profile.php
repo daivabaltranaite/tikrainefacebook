@@ -169,7 +169,7 @@ if (mysqli_connect_errno()) {
            }
 
            if (isset($POST['back'])) {
-               header('Location: index.html');
+               header('Location: login.php');
            }
 
            mysqli_close($mysqli_connection);
